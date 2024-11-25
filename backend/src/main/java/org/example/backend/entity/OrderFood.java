@@ -20,6 +20,6 @@ public class OrderFood {
     private Food food;
     @ManyToOne
     private Order order;
-    private Integer price;
+    private Double price;
     private Integer count;
 }
