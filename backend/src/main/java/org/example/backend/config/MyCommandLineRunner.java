@@ -44,10 +44,12 @@ public class MyCommandLineRunner implements CommandLineRunner {
         );
 
         List<Food> foodList = List.of(
-                Food.builder().name("Vegie Muffen").price(16d).description("There are many things are needed to start the Fast Food Business.").category(categoryList.get(0)).build(),
-                Food.builder().name("Salads").price(12d).description("There are many things are needed to start the Fast Food Business.").category(categoryList.get(1)).build(),
-                Food.builder().name("Burger").price(15d).description("There are many things are needed to start the Fast Food Business.").category(categoryList.get(2)).build(),
-                Food.builder().name("Melba").price(18d).description("There are many things are needed to start the Fast Food Business.").category(categoryList.get(3)).build()
+                Food.builder().name("Vegie Muffen").price(16d).description("There are many things are needed to start the Fast Food Business.").category(categoryList.get(0)).imageUrl("vegie_muffen.png").build(),
+                Food.builder().name("Salads").price(12d).description("There are many things are needed to start the Fast Food Business.").category(categoryList.get(1)).imageUrl("salads.png").build(),
+                Food.builder().name("Burger").price(15d).description("There are many things are needed to start the Fast Food Business.").category(categoryList.get(2)).imageUrl("burger.png").build(),
+                Food.builder().name("Peach Melba dish").price(18d).description("There are many things are needed to start the Fast Food Business.").category(categoryList.get(3)).imageUrl("peach_melba_dish.png").build(),
+                Food.builder().name("Egg Masala").price(18d).description("There are many things are needed to start the Fast Food Business.").category(categoryList.get(1)).imageUrl("egg_masala.png").build(),
+                Food.builder().name("Delmonica Steak dish").price(18d).description("There are many things are needed to start the Fast Food Business.").category(categoryList.get(0)).imageUrl("delmonica_steak_dish.png").build()
 
         );
 
