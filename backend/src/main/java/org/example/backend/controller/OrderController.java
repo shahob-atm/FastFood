@@ -21,7 +21,7 @@ public class OrderController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     public HttpEntity<?> handlePostOrder(@RequestBody OrderDto orderDto){
         return orderService.handlePostOrder(orderDto);
     }
