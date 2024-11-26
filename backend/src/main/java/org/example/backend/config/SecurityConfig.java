@@ -36,6 +36,9 @@ public class SecurityConfig{
                         auth
                                 .requestMatchers(HttpMethod.POST, "api/auth/register", "api/auth/login").permitAll()
                                 .requestMatchers(HttpMethod.GET, "api/file/{name}").permitAll()
+                                .requestMatchers(HttpMethod.GET, "api/category").permitAll()
+                                .requestMatchers(HttpMethod.GET, "api/food").permitAll()
+                                .requestMatchers(HttpMethod.GET, "api/post").permitAll()
                                 .anyRequest().authenticated()).addFilterBefore(customFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
