@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import aboutReducer from './slices/aboutSlice'; // ваш срез (slice)
+import aboutReducer from './slices/aboutSlice'; // Редуктор для "About"
+import menuReducer from './slices/menuSlice';   // Редуктор для "Menu"
 
 const store = configureStore({
     reducer: {
-        about: aboutReducer, // регистрируем редуктор
+        about: aboutReducer, // Редуктор для About
+        menu: menuReducer,   // Редуктор для Menu
     },
 });
 
