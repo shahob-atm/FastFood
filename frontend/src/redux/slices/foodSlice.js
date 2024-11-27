@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+
 // Asinxron API chaqiruvini aniqlash
 export const getFoods = createAsyncThunk("foods/getFoods", async (_, { rejectWithValue }) => {
     try {

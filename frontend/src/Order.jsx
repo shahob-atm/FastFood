@@ -5,6 +5,7 @@ import { plusCount, minusCount, getOrder } from "./redux/slices/orderSlice.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 const Order = () => {
     const dispatch = useDispatch();
     const { orders } = useSelector((state) => state.orders); // Redux state'ni o'qish
