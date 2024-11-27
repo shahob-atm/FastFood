@@ -2,7 +2,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {getFoods, postRating} from "../redux/slices/foodSlice.js";
 import React, {useEffect} from "react";
 import {addToCart} from "../redux/slices/orderSlice.js";
-import "./Menu.css";
 import ReactStars from "react-stars";
 import "./FoodCard.css";
 import "./Menu.css";
