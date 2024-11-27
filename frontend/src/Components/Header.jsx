@@ -42,7 +42,7 @@ const Header = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       goToNext();
-    }, 3000); // 3 second interval to automatically change slides
+    }, 7000); // 3 second interval to automatically change slides
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
@@ -134,19 +134,6 @@ const Header = () => {
             className="text-gray-700 hover:text-orange-500 transition"
           />
         </button>
-      </div>
-
-      {/* Dots */}
-      <div className="container mx-auto flex justify-center space-x-3 pb-6">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full ${
-              currentSlide === index ? "bg-orange-500" : "bg-gray-300"
-            }`}
-          ></button>
-        ))}
       </div>
     </>
   );
