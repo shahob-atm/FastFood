@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // Asinxron API chaqiruvini aniqlash
 export const getFoods = createAsyncThunk("foods/getFoods", async (_, { rejectWithValue }) => {
     try {
-        const response = await fetch("http://localhost:8080/api/food"); // API URL
+        const response = await fetch("/api/food"); // API URL
         if (!response.ok) {
             throw new Error("Serverda xato!");
         }
@@ -19,12 +19,20 @@ export const getFoods = createAsyncThunk("foods/getFoods", async (_, { rejectWit
 const foodSlice = createSlice({
     name: "foods",
     initialState: {
-        foods: [],      // API ma'lumotlarini saqlash
+        foods: [], // API ma'lumotlarini saqlash
+        orders: JSON.parse(localStorage.getItem("orders")) || [],
         loading: false, // Yuklanish holati
         error: null,    // Xatolik holati
     },
     reducers: {
         // Foydalanuvchi uchun boshqa oddiy reducer'lar
+        addToCart: (state, action) => {
+            const food = action.payload;
+            state.orders.push({...food, foodId: food.id, price: food.price, count: 1});
+            state.orders = [...state.orders];
+            localStorage.setItem("orders", JSON.stringify(state.orders));
+            console.log(state.orders);
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -44,4 +52,5 @@ const foodSlice = createSlice({
     },
 });
 
+export const { addToCart } = foodSlice.actions;
 export default foodSlice.reducer;

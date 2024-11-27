@@ -6,7 +6,7 @@ import aboutReducer from './slices/aboutSlice';
 import menuReducer from './slices/menuSlice';
 
 
-export  const store = configureStore({
+export const store = configureStore({
     reducer: {
         about: aboutReducer,
         menu: menuReducer,

@@ -10,7 +10,7 @@ export const getOrder = createAsyncThunk("orders/getOrder", async (data, { rejec
         }
 
         // API so'rovni yuborish
-        const response = await fetch("http://localhost:8080/api/order", {
+        const response = await fetch("/api/order", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
