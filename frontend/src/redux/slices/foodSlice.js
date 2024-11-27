@@ -1,38 +1,54 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 
-// Asinxron API chaqiruvini aniqlash
 export const getFoods = createAsyncThunk("foods/getFoods", async (_, { rejectWithValue }) => {
     try {
-        const response = await fetch("/api/food"); // API URL
+        const response = await fetch("http://localhost:8080/api/food");
         if (!response.ok) {
             throw new Error("Serverda xato!");
         }
         const data = await response.json();
-        return data; // Thunk muvaffaqiyatli tugadi
+        return data;
     } catch (error) {
-        return rejectWithValue(error.message); // Xatolikni qaytarish
+        return rejectWithValue(error.message);
     }
 });
 
-// Slice yaratish
+export const postRating = createAsyncThunk("foods/postRating", async (data, { dispatch, rejectWithValue }) => {
+    try {
+        const token = JSON.parse(localStorage.getItem("token"));
+        if (!token) {
+            throw new Error("Token mavjud emas!");
+        }
+
+        const response = await fetch("http://localhost:8080/api/rating", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "token": `${token}`,
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error("Serverda xato!");
+        }
+        dispatch(getFoods());
+        return response.json();
+    } catch (error) {
+        console.error("Xatolik:", error.message);
+        return rejectWithValue(error.message);
+    }
+});
+
 const foodSlice = createSlice({
     name: "foods",
     initialState: {
-        foods: [], // API ma'lumotlarini saqlash
-        orders: JSON.parse(localStorage.getItem("orders")) || [],
-        loading: false, // Yuklanish holati
-        error: null,    // Xatolik holati
+        foods: [],
+        loading: false,
+        error: null,
     },
     reducers: {
-        // Foydalanuvchi uchun boshqa oddiy reducer'lar
-        addToCart: (state, action) => {
-            const food = action.payload;
-            state.orders.push({...food, foodId: food.id, price: food.price, count: 1});
-            state.orders = [...state.orders];
-            localStorage.setItem("orders", JSON.stringify(state.orders));
-            console.log(state.orders);
-        }
     },
     extraReducers: (builder) => {
         builder
@@ -42,15 +58,13 @@ const foodSlice = createSlice({
             })
             .addCase(getFoods.fulfilled, (state, action) => {
                 state.loading = false;
-                state.foods = action.payload; // Ma'lumotni saqlash
-                console.log(state.foods)
+                state.foods = action.payload;
             })
             .addCase(getFoods.rejected, (state, action) => {
                 state.loading = false;
-                state.error = action.payload; // Xatolikni saqlash
+                state.error = action.payload;
             });
     },
 });
 
-export const { addToCart } = foodSlice.actions;
 export default foodSlice.reducer;

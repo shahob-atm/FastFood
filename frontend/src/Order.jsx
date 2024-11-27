@@ -4,33 +4,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { plusCount, minusCount, getOrder } from "./redux/slices/orderSlice.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {useNavigate} from "react-router-dom";
 
 
 const Order = () => {
     const dispatch = useDispatch();
-    const { orders } = useSelector((state) => state.orders); // Redux state'ni o'qish
+    const { orders } = useSelector((state) => state.orders);
+    const navigate = useNavigate();
 
-    // Tokenni localStorage'ga saqlash
     useEffect(() => {
         localStorage.setItem("token", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzI3MDA3MTcsImV4cCI6MTczMjc4NzExNywiaWQiOiI0IiwidXNlcm5hbWUiOiJzaGFoYSIsInN1YiI6IjQifQ.mWff77QyDPe-gFv8Mpd9b72KGf3kR129KtIrpBYLNv4"));
     }, [dispatch]);
 
-    // Buyurtma yuborish funksiyasi
     const handleOrder = async () => {
         try {
-            // Thunk orqali buyurtmani yuborish
             await dispatch(getOrder({ orderFoodDto: orders })).unwrap();
-            // Muvaffaqiyatli xabar
             toast.success("Buyurtma muvaffaqiyatli yuborildi!");
+            setTimeout(() => navigate("/"), 2000);
         } catch (error) {
-            // Xato xabar
-            toast.error(`Buyurtma yuborishda xatolik: ${error}`);
+            toast.error(`Buyurtma yuborishda xatolik`);
+            console.log(error);
         }
     };
 
     return (
         <>
-            <ToastContainer position="top-right"/> {/* Toaster komponent */}
+            <ToastContainer position="top-left"/>
             <div className={"container-xxl"}>
                 <div className={"row"}>
                     <div className={"col-12"}>
@@ -82,9 +81,10 @@ const Order = () => {
                             }, 0)}{" "}
                             $
                         </button>
-                        <button className={"btn btn-success w-25 fs-5"} onClick={handleOrder}>
+                        <button className={"btn btn-success fs-6 mx-3"} onClick={handleOrder} style={{width: "200px"}}>
                             order
                         </button>
+                        <button className={"btn btn-warning fs-6"} style={{width: "200px"}} onClick={() => navigate("/")}>go to home</button>
                     </div>
                 </div>
             </div>

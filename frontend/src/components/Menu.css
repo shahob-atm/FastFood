@@ -4,6 +4,9 @@
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    max-height: 900px;
+    overflow: auto;
+    scrollbar-width: none;
 }
 
 .menu-container h2 {
