@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import './Menu.css';
 
+
 const Menu = () => {
     const menuItems = useSelector((state) => state.menu.items);
 
