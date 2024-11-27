@@ -2,21 +2,18 @@ import {configureStore} from "@reduxjs/toolkit";
 import foodReducer from "./slices/foodSlice";
 import orderReducer from "./slices/orderSlice";
 import adminReducer from "./slices/adminSlice";
+import aboutReducer from './slices/aboutSlice';
+import menuReducer from './slices/menuSlice';
 
-export const store = configureStore({
-import { configureStore } from '@reduxjs/toolkit';
-import aboutReducer from './slices/aboutSlice'; // Редуктор для "About"
-import menuReducer from './slices/menuSlice';   // Редуктор для "Menu"
 
-const store = configureStore({
+export  const store = configureStore({
     reducer: {
-        about: aboutReducer, // Редуктор для About
-        menu: menuReducer,   // Редуктор для Menu
-    },
+        about: aboutReducer,
+        menu: menuReducer,
         foods: foodReducer,
         orders: orderReducer,
         admin: adminReducer
-    }
+    },
 });
 
 export default store;

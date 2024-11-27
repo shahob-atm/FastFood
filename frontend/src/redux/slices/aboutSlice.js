@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import image from "./images/FmlS61J9LP 1.png"
+import image from "./images/FmlS61J9LP 1.png";
+
+
 const aboutSlice = createSlice({
     name: 'about',
     initialState: {

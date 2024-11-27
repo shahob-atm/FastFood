@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
+
 export const getOrder = createAsyncThunk("orders/getOrder", async (data, { rejectWithValue }) => {
     try {
         // Tokenni olish
