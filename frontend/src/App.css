@@ -8,41 +8,6 @@
   text-decoration-skip-ink: none;
 }
 
-.gmailT {
-  font-family: Philosopher;
-  font-size: 31.25px;
-  font-weight: 700;
-  line-height: 40.6px;
-  text-align: center;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-}
-
-.own {
-  font-family: Philosopher;
-}
-
 body {
   overflow-x: hidden;
-}
-
-.gmail {
-  width: 1440px;
-  height: 448px;
-  top: 4621px;
-  gap: 0px;
-  opacity: 0.1px;
-  background: #dc780b;
-}
-
-.home {
-  background: rgba(143, 166, 50, 0.159);
-}
-
-.moto {
-  background: rgba(230, 77, 46, 0.159);
-}
-
-.happy {
-  background: rgba(220, 120, 11, 0.159);
 }
