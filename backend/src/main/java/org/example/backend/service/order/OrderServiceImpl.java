@@ -10,6 +10,8 @@ import org.example.backend.repository.OrderRepo;
 import org.example.backend.repository.UserRepo;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,7 +30,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public HttpEntity<?> handlePostOrder(OrderDto orderDto) {
-        User user = userRepo.findById(orderDto.userId()).orElseThrow();
+        if (orderDto.orderFoodDto().isEmpty()) throw new RuntimeException("Order food is empty");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
+        User user = userRepo.findByUsername(name).orElseThrow();
         Order order = Order.builder().user(user).status(Status.SHIPPED).build();
         Order saved = orderRepo.save(order);
 
@@ -38,6 +43,6 @@ public class OrderServiceImpl implements OrderService {
             orderFoodRepo.save(orderFood);
         }
 
-        return ResponseEntity.ok("Success");
+        return ResponseEntity.ok(saved);
     }
 }
