@@ -36,7 +36,7 @@ const Login = () => {
                     password: "",
                 });
                 localStorage.setItem("token", JSON.stringify(res.data));
-                navigate("/");
+                navigate("/home");
             })
             .catch((err) => {
                 const errorMessage = err.response?.data?.message || "Wrong username or password, please check and try again";
@@ -70,7 +70,7 @@ const Login = () => {
                         {errors.password && <p className="text-danger">{errors.password.message}</p>}
                     </div>
                     <Link to="/register" className="d-block text-center mb-1">Go to create account</Link>
-                    <Link to="/" className="d-block text-center mb-1">Go to home page</Link>
+                    <Link to="/home" className="d-block text-center mb-1">Go to home page</Link>
                     <button className="btn btn-primary w-100" type="submit" disabled={isLoading}>
                         {isLoading ? "Logging in..." : "Login"}
                     </button>
