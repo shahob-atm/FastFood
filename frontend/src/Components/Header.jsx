@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
-import h1 from "../assets/H1.png";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Header = () => {
