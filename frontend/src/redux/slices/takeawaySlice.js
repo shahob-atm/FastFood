@@ -1,6 +1,6 @@
 // slices/takeawaySlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import phone from "./images/Снимок экрана 2024-11-28 180130.png"
+import phone from "./images/phone.png"
 
 const takeawaySlice = createSlice({
     name: 'takeaway',
