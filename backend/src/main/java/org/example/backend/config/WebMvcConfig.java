@@ -24,7 +24,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        this.serveDirectory(registry, "/", "classpath:/static/");
+        this.serveDirectory(registry, "/home", "classpath:/static/");
     }
 
     private void serveDirectory(ResourceHandlerRegistry registry, String endpoint, String location) {
