@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import logo from "../assets/logo.png";
-import h1 from "../assets/H1.png";
+import logo from "./assets/logo.png";
+import h1 from "./assets/H1.png";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import {Link} from "react-router-dom";
 
