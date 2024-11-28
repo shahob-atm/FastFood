@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import aboutReducer from './slices/aboutSlice'; // Редуктор для "About"
-import menuReducer from './slices/menuSlice';   // Редуктор для "Menu"
+import aboutReducer from './slices/aboutSlice'; // Редуктор для About
+import menuReducer from './slices/menuSlice';   // Редуктор для Menu
+import takeawayReducer from './slices/takeawaySlice'; // Редуктор для Takeaway
 
 const store = configureStore({
     reducer: {
-        about: aboutReducer, // Редуктор для About
-        menu: menuReducer,   // Редуктор для Menu
+        about: aboutReducer,
+        menu: menuReducer,
+        takeaway: takeawayReducer, // Новый редуктор для Takeaway
     },
 });
 

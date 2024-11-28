@@ -2,6 +2,7 @@
 import React from 'react';
 import About from './components/About';
 import Menu from "./components/Menu.jsx";
+import Takeaway from "./components/Takeaway.jsx";
 
 const App = () => {
     return (
@@ -9,6 +10,7 @@ const App = () => {
             {/* Другие компоненты */}
             <About />
             <Menu/>
+            <Takeaway/>
             {/* Другие компоненты */}
         </div>
     );
