@@ -13,7 +13,6 @@ const Order = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        localStorage.setItem("token", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzI3MDA3MTcsImV4cCI6MTczMjc4NzExNywiaWQiOiI0IiwidXNlcm5hbWUiOiJzaGFoYSIsInN1YiI6IjQifQ.mWff77QyDPe-gFv8Mpd9b72KGf3kR129KtIrpBYLNv4"));
     }, [dispatch]);
 
     const handleOrder = async () => {

@@ -14,7 +14,6 @@ const Menu = () => {
 
     useEffect(() => {
         dispatch(getFoods());
-        localStorage.setItem("token", JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzI3MjUyNDYsImV4cCI6MTczMjgxMTY0NiwidXNlcm5hbWUiOiJzaGFoYSIsImlkIjoiNCIsInN1YiI6IjQifQ.XhmgeA-lnS_fXwQQXxPRonMSFY8Qmwfy3yvgI9_UoHA"));
     }, []);
 
     const isFoodInOrder = (foodId) => {
