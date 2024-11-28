@@ -26,7 +26,7 @@ const Login = () => {
     const handleLogin = (data) => {
         setIsLoading(true);
         axios({
-            url: "http://localhost:8080/api/auth/login",
+            url: "/api/auth/login",
             method: "POST",
             data: data,
         })

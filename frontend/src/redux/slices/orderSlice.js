@@ -8,7 +8,7 @@ export const getOrder = createAsyncThunk("orders/getOrder", async (data, { rejec
             throw new Error("Token mavjud emas!");
         }
 
-        const response = await fetch("http://localhost:8080/api/order", {
+        const response = await fetch("/api/order", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

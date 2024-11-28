@@ -40,7 +40,7 @@ const Order = () => {
                                 >
                                     <img
                                         className={"rounded-circle"}
-                                        src={`http://localhost:8080/api/file/${order.imageUrl}`}
+                                        src={`/api/file/${order.imageUrl}`}
                                         alt={order.name}
                                         width={80}
                                         height={80}

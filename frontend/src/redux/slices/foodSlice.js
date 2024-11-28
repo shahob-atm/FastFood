@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getFoods = createAsyncThunk("foods/getFoods", async (_, { rejectWithValue }) => {
     try {
-        const response = await fetch("http://localhost:8080/api/food");
+        const response = await fetch("/api/food");
         if (!response.ok) {
             throw new Error("Serverda xato!");
         }
@@ -21,7 +21,7 @@ export const postRating = createAsyncThunk("foods/postRating", async (data, { di
             throw new Error("Token mavjud emas!");
         }
 
-        const response = await fetch("http://localhost:8080/api/rating", {
+        const response = await fetch("/api/rating", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

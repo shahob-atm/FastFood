@@ -1,37 +1,36 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 
-// Asinxron API chaqiruvini aniqlash
 export const getFoods = createAsyncThunk("admin/getFoods", async (_, { rejectWithValue }) => {
     try {
-        const response = await fetch("http://localhost:8080/api/food"); // API URL
+        const response = await fetch("/api/food");
         if (!response.ok) {
             throw new Error("Serverda xato!");
         }
         const data = await response.json();
-        return data; // Thunk muvaffaqiyatli tugadi
+        return data;
     } catch (error) {
-        return rejectWithValue(error.message); // Xatolikni qaytarish
+        return rejectWithValue(error.message);
     }
 });
 
 export const getCategory = createAsyncThunk("admin/getCategory", async (_, { rejectWithValue }) => {
     try {
-        const response = await fetch("http://localhost:8080/api/category"); // API URL
+        const response = await fetch("/api/category");
         if (!response.ok) {
             throw new Error("Serverda xato!");
         }
         const data = await response.json();
-        return data; // Thunk muvaffaqiyatli tugadi
+        return data;
     } catch (error) {
-        return rejectWithValue(error.message); // Xatolikni qaytarish
+        return rejectWithValue(error.message);
     }
 });
 
 const adminSlice = createSlice({
     name: "foods",
     initialState: {
-        foods: [],  // API ma'lumotlarini saqlash
+        foods: [],
         categories: [],
         error: null,
         name: "",
@@ -43,7 +42,6 @@ const adminSlice = createSlice({
         file: ""
     },
     reducers: {
-        // Foydalanuvchi uchun boshqa oddiy reducer'lar
         updateState: (state, action) => {
             state[action.payload.stateName] = action.payload.value;
         }
@@ -55,11 +53,11 @@ const adminSlice = createSlice({
                 state.error = null;
             })
             .addCase(getFoods.fulfilled, (state, action) => {
-                state.foods = action.payload; // Ma'lumotni saqlash
+                state.foods = action.payload;
                 console.log(state.foods)
             })
             .addCase(getFoods.rejected, (state, action) => {
-                state.error = action.payload; // Xatolikni saqlash
+                state.error = action.payload;
             });
         builder
             .addCase(getCategory.pending, (state) => {
@@ -67,11 +65,11 @@ const adminSlice = createSlice({
                 state.error = null;
             })
             .addCase(getCategory.fulfilled, (state, action) => {
-                state.categories = action.payload; // Ma'lumotni saqlash
+                state.categories = action.payload;
                 console.log(state.categories)
             })
             .addCase(getCategory.rejected, (state, action) => {
-                state.error = action.payload; // Xatolikni saqlash
+                state.error = action.payload;
             });
     },
 });

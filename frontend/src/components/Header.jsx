@@ -8,19 +8,19 @@ const Header = () => {
     const slides = [
         {
             id: 1,
-            image: "http://localhost:8080/api/file/H1.png",
+            image: "/api/file/H1.png",
             title: "Making time a good time by making food the good food.",
             text: "There are many things are needed to start the Fast Food Business. You need not only just Food Stalls with Persons but also specialized equipment.",
         },
         {
             id: 2,
-            image: "http://localhost:8080/api/file/egg_masala.png",
+            image: "/api/file/egg_masala.png",
             title: "Delicious meals for every occasion.",
             text: "Discover a variety of dishes that are perfect for you and your family. Enjoy every bite with joy.",
         },
         {
             id: 3,
-            image: "http://localhost:8080/api/file/salads.png",
+            image: "/api/file/salads.png",
             title: "Fresh, tasty, and healthy food.",
             text: "From farm to table, we provide you with the freshest and most delicious meals.",
         },

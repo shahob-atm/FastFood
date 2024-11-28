@@ -40,7 +40,7 @@ const Menu = () => {
                         foods.map((food) => (
                             <div className={"food-card my-3 mx-3"} key={food.id}>
                                 <img
-                                    src={`http://localhost:8080/api/file/${food.imageUrl}`}
+                                    src={`/api/file/${food.imageUrl}`}
                                     alt="Vegie Muffen"
                                     className={"food-image"}
                                 />

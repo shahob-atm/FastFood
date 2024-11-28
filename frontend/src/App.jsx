@@ -26,7 +26,7 @@ function App() {
         if (!pathname.startsWith("/login") && !pathname.startsWith("/register") && !pathname.startsWith("/home")) {
             if (hasAnyRoles() !== undefined) {
                 axios({
-                    url: "http://localhost:8080/api/auth/me",
+                    url: "/api/auth/me",
                     method: "GET",
                     headers: {token: JSON.parse(localStorage.getItem("token"))},
                 }).then((res) => {

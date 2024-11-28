@@ -33,7 +33,7 @@ const Register = () => {
 
     const handleRegister = (data) => {
         axios({
-            url: "http://localhost:8080/api/auth/register",
+            url: "/api/auth/register",
             method: "POST",
             data: data
         }).then(() => {
