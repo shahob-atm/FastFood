@@ -19,7 +19,7 @@ const Order = () => {
         try {
             await dispatch(getOrder({ orderFoodDto: orders })).unwrap();
             toast.success("Buyurtma muvaffaqiyatli yuborildi!");
-            setTimeout(() => navigate("/"), 2000);
+            setTimeout(() => navigate("/home"), 2000);
         } catch (error) {
             toast.error(`Buyurtma yuborishda xatolik`);
             console.log(error);
@@ -83,7 +83,7 @@ const Order = () => {
                         <button className={"btn btn-success fs-6 mx-3"} onClick={handleOrder} style={{width: "200px"}}>
                             order
                         </button>
-                        <button className={"btn btn-warning fs-6"} style={{width: "200px"}} onClick={() => navigate("/")}>go to home</button>
+                        <button className={"btn btn-warning fs-6"} style={{width: "200px"}} onClick={() => navigate("/home")}>go to home</button>
                     </div>
                 </div>
             </div>
