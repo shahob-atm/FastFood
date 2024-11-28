@@ -31,7 +31,7 @@ const Menu = () => {
         <>
             <div className="menu-container">
                 <div className={"fs-6"} style={{color: "orange"}}>MENU</div>
-                <p className={"fs-4"} style={{fontWeight: "bold"}}>Food Full of Treaty Love</p>
+                <p className={"fs-4"} style={{fontWeight: "bold", fontFamily: "Philosopher"}}>Food Full of Treaty Love</p>
                 <span>
                     There are many things are needed to start the Fast Food Business. You need not only Just Food Stalls
                 </span>

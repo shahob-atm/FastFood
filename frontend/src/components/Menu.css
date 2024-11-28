@@ -1,12 +1,12 @@
 /* Основные стили для секции меню */
 .menu-container {
     max-width: 1200px;
-    margin: 0 auto;
     padding: 20px;
     text-align: center;
     max-height: 900px;
     overflow: auto;
     scrollbar-width: none;
+    margin: 0 auto 20px;
 }
 
 .menu-container h2 {

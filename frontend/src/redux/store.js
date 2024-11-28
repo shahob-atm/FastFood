@@ -4,9 +4,7 @@ import orderReducer from "./slices/orderSlice";
 import adminReducer from "./slices/adminSlice";
 import aboutReducer from './slices/aboutSlice';
 import menuReducer from './slices/menuSlice';
-
-import { configureStore } from "@reduxjs/toolkit";
-import { apiSlice } from "./features/apiSlice";
+import { apiSlice } from "./slices/headerSlices.js";
 
 export const store = configureStore({
     reducer: {
@@ -14,11 +12,9 @@ export const store = configureStore({
         menu: menuReducer,
         foods: foodReducer,
         orders: orderReducer,
-        admin: adminReducer
+        admin: adminReducer,
+        [apiSlice.reducerPath]: apiSlice.reducer,
     },
-  reducer: {
-    [apiSlice.reducerPath]: apiSlice.reducer,
-  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),
 });
