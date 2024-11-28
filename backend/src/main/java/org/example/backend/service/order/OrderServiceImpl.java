@@ -30,6 +30,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public HttpEntity<?> handlePostOrder(OrderDto orderDto) {
+        if (orderDto.orderFoodDto().isEmpty()) throw new RuntimeException("Order food is empty");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String name = authentication.getName();
         User user = userRepo.findByUsername(name).orElseThrow();
@@ -42,6 +43,6 @@ public class OrderServiceImpl implements OrderService {
             orderFoodRepo.save(orderFood);
         }
 
-        return ResponseEntity.ok("Success");
+        return ResponseEntity.ok(saved);
     }
 }

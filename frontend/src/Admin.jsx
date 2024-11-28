@@ -42,7 +42,7 @@ const Admin = () => {
                 </div>
             </Rodal>
             <div className={"container-xxl rounded shadow-sm p-3 text-start mb-1"}>
-                <Link className={"text-decoration-none"} to={"/"}>Home</Link>
+                <Link className={"text-decoration-none"} to={"/home"}>Home</Link>
                 <Link className={"mx-3 text-decoration-none"} to={"/login"}>Login</Link>
             </div>
             <div className={"container-xxl"}>
@@ -67,7 +67,7 @@ const Admin = () => {
                                 <tr key={food.id}>
                                     <td>{food.id}</td>
                                     <td>
-                                        <img src={`http://localhost:8080/api/file/${food.imageUrl}`} className={"rounded-circle"} alt={food.name} width={50} height={50} />
+                                        <img src={`/api/file/${food.imageUrl}`} className={"rounded-circle"} alt={food.name} width={50} height={50} />
                                     </td>
                                     <td>{food.name}</td>
                                     <td>{food.description}</td>

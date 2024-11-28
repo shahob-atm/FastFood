@@ -1,0 +1,47 @@
+/* Register.css */
+.register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa; /* engil kulrang fon */
+}
+
+.register-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* engil soyali effekt */
+    width: 100%;
+    max-width: 400px; /* maksimal kenglik */
+}
+
+.register-card h6 {
+    font-weight: 600;
+    color: #007bff; /* to'q kulrang matn */
+}
+
+.register-card .form-control {
+    font-size: 16px;
+    padding: 10px 12px;
+}
+
+.register-card .form-control:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+.register-card button {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.register-card .text-center a {
+    color: #007bff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.register-card .text-center a:hover {
+    text-decoration: underline;
+}

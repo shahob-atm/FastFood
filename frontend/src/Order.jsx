@@ -4,31 +4,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { plusCount, minusCount, getOrder } from "./redux/slices/orderSlice.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {useNavigate} from "react-router-dom";
+
 
 const Order = () => {
     const dispatch = useDispatch();
-    const { orders } = useSelector((state) => state.orders); // Redux state'ni o'qish
+    const { orders } = useSelector((state) => state.orders);
+    const navigate = useNavigate();
 
-    // Tokenni localStorage'ga saqlash
     useEffect(() => {
     }, [dispatch]);
 
-    // Buyurtma yuborish funksiyasi
     const handleOrder = async () => {
         try {
-            // Thunk orqali buyurtmani yuborish
             await dispatch(getOrder({ orderFoodDto: orders })).unwrap();
-            // Muvaffaqiyatli xabar
             toast.success("Buyurtma muvaffaqiyatli yuborildi!");
+            setTimeout(() => navigate("/home"), 2000);
         } catch (error) {
-            // Xato xabar
-            toast.error(`Buyurtma yuborishda xatolik: ${error}`);
+            toast.error(`Buyurtma yuborishda xatolik`);
+            console.log(error);
         }
     };
 
     return (
         <>
-            <ToastContainer position="top-right"/> {/* Toaster komponent */}
+            <ToastContainer position="top-left"/>
             <div className={"container-xxl"}>
                 <div className={"row"}>
                     <div className={"col-12"}>
@@ -40,7 +40,7 @@ const Order = () => {
                                 >
                                     <img
                                         className={"rounded-circle"}
-                                        src={`http://localhost:8080/api/file/${order.imageUrl}`}
+                                        src={`/api/file/${order.imageUrl}`}
                                         alt={order.name}
                                         width={80}
                                         height={80}
@@ -80,9 +80,10 @@ const Order = () => {
                             }, 0)}{" "}
                             $
                         </button>
-                        <button className={"btn btn-success w-25 fs-5"} onClick={handleOrder}>
+                        <button className={"btn btn-success fs-6 mx-3"} onClick={handleOrder} style={{width: "200px"}}>
                             order
                         </button>
+                        <button className={"btn btn-warning fs-6"} style={{width: "200px"}} onClick={() => navigate("/home")}>go to home</button>
                     </div>
                 </div>
             </div>
