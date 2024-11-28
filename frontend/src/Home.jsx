@@ -9,13 +9,16 @@ import Takeaway from "./components/Takeaway.jsx";
 const Home = () => {
     return (
         <>
-            <Header />
-            <Content />
-            <About />
-            <Menu />
-            <Gmail />
-            <Takeaway />
-            <Footer />
+            <Header/>
+            <Content/>
+            <About/>
+            <div style={{height: "200px", width: "100%"}}></div>
+            <Menu/>
+            <div style={{height: "200px", width: "100%"}}></div>
+            <Takeaway/>
+            <div style={{height: "250px", width: "100%"}}></div>
+            <Gmail/>
+            <Footer/>
         </>
     )
 };
