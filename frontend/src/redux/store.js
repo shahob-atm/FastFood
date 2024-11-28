@@ -5,6 +5,8 @@ import adminReducer from "./slices/adminSlice";
 import aboutReducer from './slices/aboutSlice';
 import menuReducer from './slices/menuSlice';
 
+import { configureStore } from "@reduxjs/toolkit";
+import { apiSlice } from "./features/apiSlice";
 
 export const store = configureStore({
     reducer: {
@@ -14,6 +16,11 @@ export const store = configureStore({
         orders: orderReducer,
         admin: adminReducer
     },
+  reducer: {
+    [apiSlice.reducerPath]: apiSlice.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
 export default store;
